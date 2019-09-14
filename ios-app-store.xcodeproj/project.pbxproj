@@ -13,6 +13,7 @@
 		4FA52DA5232D8578009A6679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA52DA4232D8578009A6679 /* Assets.xcassets */; };
 		4FA52DA8232D8578009A6679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA52DA6232D8578009A6679 /* LaunchScreen.storyboard */; };
 		4FA52DB0232D87B5009A6679 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DAF232D87B5009A6679 /* BaseTabBarController.swift */; };
+		4FA52DB3232DA4E4009A6679 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DB2232DA4E4009A6679 /* AppsSearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4FA52DA7232D8578009A6679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FA52DA9232D8578009A6679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FA52DAF232D87B5009A6679 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		4FA52DB2232DA4E4009A6679 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,24 @@
 		4FA52D9C232D8575009A6679 /* ios-app-store */ = {
 			isa = PBXGroup;
 			children = (
+				4FA52DB1232DA472009A6679 /* Controller */,
 				4FA52D9D232D8575009A6679 /* AppDelegate.swift */,
 				4FA52D9F232D8575009A6679 /* ViewController.swift */,
 				4FA52DA1232D8575009A6679 /* Main.storyboard */,
 				4FA52DA4232D8578009A6679 /* Assets.xcassets */,
 				4FA52DA6232D8578009A6679 /* LaunchScreen.storyboard */,
 				4FA52DA9232D8578009A6679 /* Info.plist */,
-				4FA52DAF232D87B5009A6679 /* BaseTabBarController.swift */,
 			);
 			path = "ios-app-store";
+			sourceTree = "<group>";
+		};
+		4FA52DB1232DA472009A6679 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4FA52DAF232D87B5009A6679 /* BaseTabBarController.swift */,
+				4FA52DB2232DA4E4009A6679 /* AppsSearchController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 				4FA52DA0232D8575009A6679 /* ViewController.swift in Sources */,
 				4FA52D9E232D8575009A6679 /* AppDelegate.swift in Sources */,
 				4FA52DB0232D87B5009A6679 /* BaseTabBarController.swift in Sources */,
+				4FA52DB3232DA4E4009A6679 /* AppsSearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

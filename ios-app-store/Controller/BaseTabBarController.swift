@@ -15,6 +15,7 @@ class BaseTabBarController: UITabBarController {
         
         viewControllers = [
             
+            createNavController(viewController: AppsSearchController(), title: "Search", imageName: "search1"),
             createNavController(viewController: UIViewController(), title: "Today", imageName: "today_icon"),
             createNavController(viewController: UIViewController(), title: "Apps", imageName: "apps"),
             // make sure to use collectionViewLayout inside first parameter when using collectionView or will get crash.

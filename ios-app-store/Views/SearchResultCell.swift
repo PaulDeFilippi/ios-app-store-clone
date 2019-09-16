@@ -14,8 +14,6 @@ class SearchResultCell: UICollectionViewCell {
         super.init(frame: frame)
         
         backgroundColor = .white
-//        getButton.layer.cornerRadius = getButton.frame.height / 2
-//        getButton.clipsToBounds = true
         
         let labelsStackView = UIStackView(arrangedSubviews: [
             nameLabel, categoryLabel, ratingsLabel
@@ -41,15 +39,8 @@ class SearchResultCell: UICollectionViewCell {
         overallStackView.axis = .vertical
         overallStackView.spacing = 16
         
-        
-        
         addSubview(overallStackView)
         overallStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
-//        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-//        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -89,7 +80,6 @@ class SearchResultCell: UICollectionViewCell {
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        //        button.clipsToBounds = true
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         button.heightAnchor.constraint(equalToConstant: 32).isActive = true
         button.layer.cornerRadius = 16
@@ -100,7 +90,6 @@ class SearchResultCell: UICollectionViewCell {
     lazy var screenshot1ImageView = self.createScreenshotImageView()
     lazy var screenshot2ImageView = self.createScreenshotImageView()
     lazy var screenshot3ImageView = self.createScreenshotImageView()
-    
     
     func createScreenshotImageView() -> UIImageView {
         let imageView = UIImageView()

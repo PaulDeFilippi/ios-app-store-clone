@@ -13,6 +13,7 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     // MARK:- Properties
     
     fileprivate let cellId = "SearchControllerCell"
+    fileprivate var appResults = [Result]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,52 +36,73 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         fatalError("init(coder:) has not been implemented")
     }
     
-    struct SearchResult: Decodable {
-        let resultCount: Int
-        let results: [Result]
-    }
     
-    struct Result: Decodable {
-        let trackName: String
-        let primaryGenreName: String
-    }
     
     // MARK:- Actions
     
     fileprivate func fetchItunesApps() {
         
-        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
-        
-        guard let url = URL(string: urlString) else { return }
-        
-        // fetch data from internet
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        APIService.shared.fetchApps { (results, err) in
             
-            if let err = error {
-                print("Failed to fetch Apps:", err)
+            if let err = err {
+                print("Failed to fetch apps:", err)
                 return
             }
+            // actually get back our search results somehow
+            //print("Finished fetching app from controller")
             
-            // success
+            // we need to get back our search results somehow
+            // use a completion block
             
-//            print(data)
-//            print(String(data: data!, encoding: .utf8))
+            self.appResults = results
             
-            guard let data = data else { return }
-            
-            do {
-                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-                
-                //print(searchResult)
-                // simple way of checking json in console
-                searchResult.results.forEach({ print($0.trackName, $0.primaryGenreName) })
-                
-            } catch let jsonError {
-                print("There is an error decoding JSON: ", jsonError)
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
             }
+        
             
             
-        }.resume() // fires off request
+        }
+        
+//        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
+//
+//        guard let url = URL(string: urlString) else { return }
+//
+//        // fetch data from internet
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//
+//            if let err = error {
+//                print("Failed to fetch Apps:", err)
+//                return
+//            }
+//
+//            // success
+//
+////            print(data)
+////            print(String(data: data!, encoding: .utf8))
+//
+//            guard let data = data else { return }
+//
+//            do {
+//                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
+//
+//                //print(searchResult)
+//                // simple way of checking json in console
+//                //searchResult.results.forEach({ print($0.trackName, $0.primaryGenreName) })
+//
+//                self.appResults = searchResult.results
+//
+//                DispatchQueue.main.async {
+//                    self.collectionView.reloadData()
+//
+//                }
+//
+//            } catch let jsonError {
+//                print("There is an error decoding JSON: ", jsonError)
+//            }
+//
+//
+//        }.resume() // fires off request
         
     }
     
@@ -93,13 +115,20 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return appResults.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchResultCell
-        cell.nameLabel.text = "HERE IS MY APP NAME"
+        
+        // use indexPath.item when inside a collectionView / use indexPath.row when using a tableView
+        let appResult = appResults[indexPath.item]
+        
+        cell.nameLabel.text = appResult.trackName
+        cell.categoryLabel.text = appResult.primaryGenreName
+        cell.ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
+        
         
         
         return cell

@@ -12,10 +12,10 @@ class APIService {
     
     static let shared = APIService() // Singlton
     
-    func fetchApps(completion: @escaping ([Result], Error?) -> ()) {
+    func fetchApps(searchTerm: String, completion: @escaping ([Result], Error?) -> ()) {
         print("Fetching itunes apps from service layer")
         
-        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
+        let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
 
         guard let url = URL(string: urlString) else { return }
 
@@ -29,30 +29,18 @@ class APIService {
             }
 
             // success
-
-//            print(data)
-//            print(String(data: data!, encoding: .utf8))
-
             guard let data = data else { return }
 
             do {
                 let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-                //print(searchResult)
                 
                 completion(searchResult.results, nil)
-
-                //print(searchResult)
-                // simple way of checking json in console
-                //searchResult.results.forEach({ print($0.trackName, $0.primaryGenreName) })
-
 
             } catch let jsonError {
                 print("There is an error decoding JSON: ", jsonError)
                 completion([], jsonError)
             }
-
-
+            
         }.resume() // fires off request
-        
     }
 }

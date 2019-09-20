@@ -9,12 +9,22 @@
 import UIKit
 import SDWebImage
 
-class AppsSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class AppsSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     // MARK:- Properties
     
     fileprivate let cellId = "SearchControllerCell"
     fileprivate var appResults = [Result]()
+    
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    
+    fileprivate let enterSearchTermLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Please enter search term above..."
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +33,16 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         
         collectionView.register(SearchResultCell.self, forCellWithReuseIdentifier: cellId)
         
-        fetchItunesApps()
+//        view.addSubview(enterSearchTermLabel)
+//        enterSearchTermLabel.fillSuperview()
+        
+        // better way to add label and also animate it up with search bar
+        collectionView.addSubview(enterSearchTermLabel)
+        enterSearchTermLabel.fillSuperview(padding: .init(top: 150, left: 50, bottom: 0, right: 50))
+        
+        setupSearchBar()
+        
+        //fetchItunesApps()
     
     }
     
@@ -37,23 +56,24 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     // MARK:- Actions
+    
+    fileprivate func setupSearchBar() {
+        definesPresentationContext = true
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+    }
     
     fileprivate func fetchItunesApps() {
         
-        APIService.shared.fetchApps { (results, err) in
+        APIService.shared.fetchApps(searchTerm: "Twitter") { (results, err) in
             
             if let err = err {
                 print("Failed to fetch apps:", err)
                 return
             }
-            // actually get back our search results somehow
-            //print("Finished fetching app from controller")
-            
-            // we need to get back our search results somehow
-            // use a completion block
             
             self.appResults = results
             
@@ -61,50 +81,28 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
                 self.collectionView.reloadData()
             }
         
-            
-            
         }
+    }
+    
+    var timer: Timer?
+    
+    // MARK:- Search Bar Delegate Methods
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
         
-//        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
-//
-//        guard let url = URL(string: urlString) else { return }
-//
-//        // fetch data from internet
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//
-//            if let err = error {
-//                print("Failed to fetch Apps:", err)
-//                return
-//            }
-//
-//            // success
-//
-////            print(data)
-////            print(String(data: data!, encoding: .utf8))
-//
-//            guard let data = data else { return }
-//
-//            do {
-//                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-//
-//                //print(searchResult)
-//                // simple way of checking json in console
-//                //searchResult.results.forEach({ print($0.trackName, $0.primaryGenreName) })
-//
-//                self.appResults = searchResult.results
-//
-//                DispatchQueue.main.async {
-//                    self.collectionView.reloadData()
-//
-//                }
-//
-//            } catch let jsonError {
-//                print("There is an error decoding JSON: ", jsonError)
-//            }
-//
-//
-//        }.resume() // fires off request
+        // throttling the search
         
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            APIService.shared.fetchApps(searchTerm: searchText) { (res, err) in
+                self.appResults = res
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        })
     }
     
     // MARK:- Delegate Methods
@@ -114,6 +112,8 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        enterSearchTermLabel.isHidden = appResults.count != 0
+        
         return appResults.count
     }
     
@@ -125,23 +125,6 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         let appResult = appResults[indexPath.item]
         
         cell.appResult = appResult
-        
-//        cell.nameLabel.text = appResult.trackName
-//        cell.categoryLabel.text = appResult.primaryGenreName
-//        cell.ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
-//        
-//        let url = URL(string: appResult.artworkUrl100)
-//        cell.appIconImageView.sd_setImage(with: url)
-//        
-//        cell.screenshot1ImageView.sd_setImage(with: URL(string: appResult.screenshotUrls[0]))
-//        
-//        if appResult.screenshotUrls.count > 1 {
-//            cell.screenshot2ImageView.sd_setImage(with: URL(string: appResult.screenshotUrls[1]))
-//        }
-//        
-//        if appResult.screenshotUrls.count > 2 {
-//            cell.screenshot3ImageView.sd_setImage(with: URL(string: appResult.screenshotUrls[2]))
-//        }
        
         return cell
     }

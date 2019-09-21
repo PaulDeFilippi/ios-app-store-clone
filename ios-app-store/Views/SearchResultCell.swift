@@ -123,5 +123,4 @@ class SearchResultCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }
-    
 }

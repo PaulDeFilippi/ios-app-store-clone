@@ -10,6 +10,8 @@ import UIKit
 
 class SearchResultCell: UICollectionViewCell {
     
+    // MARK:- Properties
+    
     var appResult: Result! {
         
         didSet {
@@ -31,6 +33,8 @@ class SearchResultCell: UICollectionViewCell {
             }
         }
     }
+    
+    // MARK:- Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,6 +72,8 @@ class SearchResultCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK:- Views
     
     let appIconImageView: UIImageView = {
         let iv = UIImageView()
@@ -113,6 +119,8 @@ class SearchResultCell: UICollectionViewCell {
     lazy var screenshot1ImageView = self.createScreenshotImageView()
     lazy var screenshot2ImageView = self.createScreenshotImageView()
     lazy var screenshot3ImageView = self.createScreenshotImageView()
+    
+    // MARK:- Actions
     
     func createScreenshotImageView() -> UIImageView {
         let imageView = UIImageView()

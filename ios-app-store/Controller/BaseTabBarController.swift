@@ -10,11 +10,13 @@ import UIKit
 
 class BaseTabBarController: UITabBarController {
     
+    // MARK:- Initialization
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewControllers = [
-            createNavController(viewController: AppsController(), title: "Apps", imageName: "apps"),
+            createNavController(viewController: AppsPageController(), title: "Apps", imageName: "apps"),
             createNavController(viewController: UIViewController(), title: "Today", imageName: "today_icon"),
             
             // make sure to use collectionViewLayout inside first parameter when using collectionView or will get crash.
@@ -27,6 +29,8 @@ class BaseTabBarController: UITabBarController {
         //tabBar.tintColor = .yellow
         //tabBar.barTintColor = .gray
     }
+    
+    // MARK:- Actions
     
     fileprivate func createNavController(viewController: UIViewController, title: String, imageName: String) -> UIViewController {
         

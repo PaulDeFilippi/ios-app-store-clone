@@ -10,7 +10,13 @@ import UIKit
 
 class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlowLayout {
     
+    // MARK:- Properties
+    
     let cellId = "HorizontalControllerCell"
+    let topBottomPadding: CGFloat = 12
+    let lineSpacing: CGFloat = 10
+    
+    // MARK:- Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +30,8 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
         }
     }
     
+    // MARK:- Delegate Methods
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -33,9 +41,6 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
         
         return cell
     }
-    
-    let topBottomPadding: CGFloat = 12
-    let lineSpacing: CGFloat = 10
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

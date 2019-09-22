@@ -10,6 +10,8 @@ import UIKit
 
 class AppsGroupCell: UICollectionViewCell {
     
+    // MARK:- Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -26,6 +28,8 @@ class AppsGroupCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK:- Views
     
     // using the UILabel extention convenience init
     let titleLabel = UILabel(text: "App Section",

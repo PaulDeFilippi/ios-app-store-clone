@@ -10,6 +10,8 @@ import UIKit
 
 class BaseListController: UICollectionViewController {
     
+    // MARK:- Initialization
+    
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }

@@ -25,6 +25,8 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
+    
+    // MARK:- Initialization
 
     override func viewDidLoad() {
         super.viewDidLoad()

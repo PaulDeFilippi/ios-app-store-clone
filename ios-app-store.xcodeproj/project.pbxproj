@@ -28,6 +28,7 @@
 		4FA52DD22337FD64009A6679 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DD12337FD64009A6679 /* AppsHeaderHorizontalController.swift */; };
 		4FA52DD423380366009A6679 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DD323380366009A6679 /* AppsHeaderCell.swift */; };
 		4FA52DD6233804A3009A6679 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DD5233804A3009A6679 /* VerticalStackView.swift */; };
+		4FA52DD82339700F009A6679 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DD72339700F009A6679 /* AppGroup.swift */; };
 		8DA21BA6B7F5A51EE0D848A8 /* Pods_ios_app_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		4FA52DD12337FD64009A6679 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		4FA52DD323380366009A6679 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
 		4FA52DD5233804A3009A6679 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
+		4FA52DD72339700F009A6679 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		A9331B50BCB57FCE061C727E /* Pods-ios-app-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-app-store.debug.xcconfig"; path = "Target Support Files/Pods-ios-app-store/Pods-ios-app-store.debug.xcconfig"; sourceTree = "<group>"; };
 		E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_app_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA52DBB23303F57009A6679 /* SearchResult.swift */,
+				4FA52DD72339700F009A6679 /* AppGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				4FA52DC423356D7F009A6679 /* BaseListController.swift in Sources */,
 				4FA52DD6233804A3009A6679 /* VerticalStackView.swift in Sources */,
 				4FA52DA0232D8575009A6679 /* ViewController.swift in Sources */,
+				4FA52DD82339700F009A6679 /* AppGroup.swift in Sources */,
 				4FA52DC7233571B2009A6679 /* AppsGroupCell.swift in Sources */,
 				4FA52DD02337F90A009A6679 /* AppsPageHeader.swift in Sources */,
 				4FA52DBC23303F57009A6679 /* SearchResult.swift in Sources */,

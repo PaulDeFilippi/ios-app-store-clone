@@ -61,7 +61,7 @@ class APIService {
             do {
                 let appGroup = try JSONDecoder().decode(AppGroup.self, from: data!)
                 //print(appGroup.feed.results)
-                appGroup.feed.results.forEach({print($0.name)})
+                //appGroup.feed.results.forEach({print($0.name)})
                 completion(appGroup, nil)
             } catch {
                 completion(nil, error)

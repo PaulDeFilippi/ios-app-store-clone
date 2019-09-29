@@ -18,7 +18,7 @@ class AppsHeaderCell: UICollectionViewCell {
         //backgroundColor = .green
         
         companyLabel.textColor = .blue
-        imageView.backgroundColor = .red
+        //imageView.backgroundColor = .red
         titleLabel.numberOfLines = 2
         
         let stackView = VerticalStackView(arrangedSubviews: [

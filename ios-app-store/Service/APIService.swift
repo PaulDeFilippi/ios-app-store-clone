@@ -70,13 +70,40 @@ class APIService {
                 return
             }
             
+            guard let data = data else { return }
+            
             do {
-                let appGroup = try JSONDecoder().decode(AppGroup.self, from: data!)
+                let appGroup = try JSONDecoder().decode(AppGroup.self, from: data)
                 completion(appGroup, nil)
             } catch {
                 completion(nil, error)
             }
             
         }.resume()
+    }
+    
+    func fetchSocialApps(completion: @escaping ([SocialApp]?, Error?) -> Void) {
+        let urlString = "https://api.letsbuildthatapp.com/appstore/social"
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let err = error {
+                print("There was an error: ", err)
+                completion(nil, err)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let objects = try JSONDecoder().decode([SocialApp].self, from: data)
+                // success
+                completion(objects, nil)
+            } catch {
+                completion(nil, error)
+            }
+            
+            }.resume()
     }
 }

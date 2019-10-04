@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelegateFlowLayout {
+class AppsHeaderHorizontalController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
     // MARK:- Properties
     
@@ -23,9 +23,11 @@ class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelega
         
         collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
         
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+        
+//        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+//            layout.scrollDirection = .horizontal
+//        }
     }
     
     // MARK:- Delegate Methods
@@ -49,7 +51,7 @@ class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelega
         return .init(width: view.frame.width - 48, height: view.frame.height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 16, bottom: 0, right: 16)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return .init(top: 0, left: 16, bottom: 0, right: 16)
+//    }
 }

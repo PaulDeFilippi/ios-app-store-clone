@@ -54,14 +54,14 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
     
     fileprivate func fetchItunesApps() {
         
-        APIService.shared.fetchApps(searchTerm: "Twitter") { (results, err) in
+        APIService.shared.fetchApps(searchTerm: "Twitter") { (res, err) in
             
             if let err = err {
                 print("Failed to fetch apps:", err)
                 return
             }
             
-            self.appResults = results
+            self.appResults = res?.results ?? []
             
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -83,7 +83,7 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
             APIService.shared.fetchApps(searchTerm: searchText) { (res, err) in
-                self.appResults = res
+                self.appResults = res?.results ?? []
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }

@@ -32,6 +32,7 @@
 		4FA52DDA233FC3C8009A6679 /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DD9233FC3C8009A6679 /* SocialApp.swift */; };
 		4FA52DDC23479BD0009A6679 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DDB23479BD0009A6679 /* HorizontalSnappingController.swift */; };
 		4FA52DDE2347B0AF009A6679 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DDD2347B0AF009A6679 /* BetterSnappingLayout.swift */; };
+		4FA52DE12347FE61009A6679 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DE02347FE61009A6679 /* AppDetailController.swift */; };
 		8DA21BA6B7F5A51EE0D848A8 /* Pods_ios_app_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		4FA52DD9233FC3C8009A6679 /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		4FA52DDB23479BD0009A6679 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		4FA52DDD2347B0AF009A6679 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
+		4FA52DE02347FE61009A6679 /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
 		A9331B50BCB57FCE061C727E /* Pods-ios-app-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-app-store.debug.xcconfig"; path = "Target Support Files/Pods-ios-app-store/Pods-ios-app-store.debug.xcconfig"; sourceTree = "<group>"; };
 		E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_app_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -169,6 +171,7 @@
 		4FA52DC023356B72009A6679 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				4FA52DDF2347FE43009A6679 /* Details */,
 				4FA52DC123356BA8009A6679 /* AppsPageController.swift */,
 				4FA52DC923357819009A6679 /* AppsHorizontalController.swift */,
 				4FA52DD12337FD64009A6679 /* AppsHeaderHorizontalController.swift */,
@@ -193,6 +196,14 @@
 				4FA52DB2232DA4E4009A6679 /* AppsSearchController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		4FA52DDF2347FE43009A6679 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				4FA52DE02347FE61009A6679 /* AppDetailController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		9BD1EC69743309E421D58352 /* Frameworks */ = {
@@ -350,6 +361,7 @@
 				4FA52DD22337FD64009A6679 /* AppsHeaderHorizontalController.swift in Sources */,
 				4FA52DB3232DA4E4009A6679 /* AppsSearchController.swift in Sources */,
 				4FA52DBF2330470D009A6679 /* APIService.swift in Sources */,
+				4FA52DE12347FE61009A6679 /* AppDetailController.swift in Sources */,
 				4FA52DDC23479BD0009A6679 /* HorizontalSnappingController.swift in Sources */,
 				4FA52DCC2336C95F009A6679 /* AppRowCell.swift in Sources */,
 				4FA52DB6232EC376009A6679 /* SearchResultCell.swift in Sources */,

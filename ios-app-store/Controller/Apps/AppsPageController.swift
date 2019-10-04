@@ -74,11 +74,13 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         dispatchGroup.enter()
         APIService.shared.fetchSocialApps { (apps, err) in
             dispatchGroup.leave()
-            // check error
             
-            //apps?.forEach({print($0.name, $0.tagline)})
+            if let err = err {
+                print(err)
+                return
+            }
+
             self.socialApps = apps ?? []
-            //self.collectionView.reloadData()
         }
         
         // completion
@@ -101,6 +103,12 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     }
     
     // MARK:- Delegate Methods
+    
+//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let redController = UIViewController()
+//        redController.view.backgroundColor = .red
+//        navigationController?.pushViewController(redController, animated: true)
+//    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return groups.count
@@ -127,6 +135,11 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         cell.titleLabel.text = appGroup.feed.title
         cell.horizontalController.appGroup = appGroup
         cell.horizontalController.collectionView.reloadData()
+        cell.horizontalController.didSelectHandler = { [weak self] feedResult in
+            let appDetailController = AppDetailController()
+            appDetailController.navigationItem.title = feedResult.name
+            self?.navigationController?.pushViewController(appDetailController, animated: true)
+        }
         
         return cell
     }

@@ -15,10 +15,7 @@ class AppRowCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        //backgroundColor = .red
-        
         imageView.backgroundColor = .purple
-        //imageView.widthAnchor.constraint(equalToConstant: 64).isActive = true
         imageView.constrainWidth(constant: 64)
         imageView.constrainHeight(constant: 64)
         
@@ -27,7 +24,6 @@ class AppRowCell: UICollectionViewCell {
         getButton.constrainHeight(constant: 32)
         getButton.layer.cornerRadius = 32 / 2
         getButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        
         
         let vStack = UIStackView(arrangedSubviews: [nameLabel, companyLabel])
         vStack.axis = .vertical
@@ -58,6 +54,5 @@ class AppRowCell: UICollectionViewCell {
                                font: .systemFont(ofSize: 13))
     
     let getButton = UIButton(title: "GET")
-    
 }
 

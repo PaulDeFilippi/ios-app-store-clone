@@ -18,33 +18,6 @@ class APIService {
         let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
         
         fetchGenericJSONData(urlString: urlString, completion: completion)
-        
-
-//        guard let url = URL(string: urlString) else { return }
-//
-//        // fetch data from internet
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//
-//            if let err = error {
-//                print("Failed to fetch Apps:", err)
-//                completion([], nil)
-//                return
-//            }
-//
-//            // success
-//            guard let data = data else { return }
-//
-//            do {
-//                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-//                
-//                completion(searchResult.results, nil)
-//
-//            } catch let jsonError {
-//                print("There is an error decoding JSON: ", jsonError)
-//                completion([], jsonError)
-//            }
-//            
-//        }.resume() // fires off request
     }
     
     func fetchTopGrossing(completion: @escaping (AppGroup?, Error?) -> ()) {
@@ -62,6 +35,7 @@ class APIService {
     }
     
     // helper function
+    
     func fetchAppGroup(urlString: String, completion: @escaping (AppGroup?, Error?) -> Void) {
         fetchGenericJSONData(urlString: urlString, completion: completion)
     }
@@ -97,6 +71,5 @@ class APIService {
             }
             
             }.resume()
-        
     }
 }

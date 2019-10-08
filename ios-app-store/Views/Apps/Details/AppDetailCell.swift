@@ -9,10 +9,20 @@
 import UIKit
 
 class AppDetailCell: UICollectionViewCell {
+    
+    var app: Result! {
+        didSet {
+            nameLabel.text = app?.trackName
+            releaseNotesLabel.text = app?.releaseNotes
+            appIconImageView.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
+            priceButton.setTitle(app?.formattedPrice, for: .normal)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        //backgroundColor = .red
+        backgroundColor = .lightGray
         
         appIconImageView.backgroundColor = .red
         appIconImageView.constrainWidth(constant: 140)
@@ -36,7 +46,6 @@ class AppDetailCell: UICollectionViewCell {
                     ], spacing: 12)
                 ], customSpacing: 20),
             
-            
             whatsNewLabel,
             releaseNotesLabel
             
@@ -59,7 +68,7 @@ class AppDetailCell: UICollectionViewCell {
     
     let whatsNewLabel = UILabel(text: "What's New", font: .boldSystemFont(ofSize: 20))
     
-    let releaseNotesLabel = UILabel(text: "Release Notes", font: .systemFont(ofSize: 16), numberOfLines: 0)
+    let releaseNotesLabel = UILabel(text: "Release Notes", font: .systemFont(ofSize: 18), numberOfLines: 0)
 }
 
 extension UIStackView {

@@ -42,7 +42,6 @@ class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDe
         if let app = appGroup?.feed.results[indexPath.item] {
             didSelectHandler?(app)
         }
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

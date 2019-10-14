@@ -26,10 +26,30 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
                     self.collectionView.reloadData()
                 }
             }
+            
+            let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?l=en&cc=us"
+            print(reviewsUrl)
+            
+            APIService.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, err) in
+                if let err = err {
+                    print("Failed to decode reviews:", err)
+                    return
+                }
+                
+                self.reviews = reviews
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+                
+//                reviews?.feed.entry.forEach({ (entry) in
+//                    print("Here is the title: \(entry.title.label)     ", "Here is the Author: \(entry.author.name.label)      ", "Here is the content: \(entry.content.label)       ")
+//                })
+            }
         }
     }
     
     var app : Result?
+    var reviews: Reviews?
     
     let detailCellId = "detailCellId"
     let previewCellId = "previewCellId"
@@ -65,6 +85,8 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellId, for: indexPath) as! ReviewRowCell
+            cell.reviewsController.reviews = self.reviews
+            
             return cell
         }
     

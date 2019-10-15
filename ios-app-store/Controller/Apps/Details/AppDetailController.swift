@@ -12,7 +12,7 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
     
     var appId: String! {
         didSet {
-            print("Here is my appId: ", appId)
+            print("Here is my appId: ", appId ?? "")
             let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
             
             APIService.shared.fetchGenericJSONData(urlString: urlString) { (result: SearchResult?, err) in
@@ -37,6 +37,9 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
                 }
                 
                 self.reviews = reviews
+                
+                //reviews?.feed.entry.forEach({print($0.rating.label)})
+                
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -126,5 +129,9 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
         
         return .init(width: view.frame.width, height: height)
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 0, bottom: 16, right: 0)
     }
 }

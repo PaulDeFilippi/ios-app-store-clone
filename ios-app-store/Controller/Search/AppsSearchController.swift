@@ -44,6 +44,16 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
     
     // MARK:- Actions
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appDetailController = AppDetailController()
+        
+        let appId = appResults[indexPath.item].trackId
+        
+        appDetailController.appId = String(appId)
+        
+        navigationController?.pushViewController(appDetailController, animated: true)
+    }
+    
     fileprivate func setupSearchBar() {
         definesPresentationContext = true
         navigationItem.searchController = self.searchController
@@ -83,6 +93,12 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
             APIService.shared.fetchApps(searchTerm: searchText) { (res, err) in
+                
+                if let err = err {
+                    print("Failed to fetch apps:", err)
+                    return
+                }
+                
                 self.appResults = res?.results ?? []
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()

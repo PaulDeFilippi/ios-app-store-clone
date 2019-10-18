@@ -24,10 +24,6 @@ class AppsHeaderHorizontalController: HorizontalSnappingController, UICollection
         collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
         
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
-        
-//        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-//            layout.scrollDirection = .horizontal
-//        }
     }
     
     // MARK:- Delegate Methods
@@ -43,15 +39,11 @@ class AppsHeaderHorizontalController: HorizontalSnappingController, UICollection
         cell.companyLabel.text = app.name
         cell.titleLabel.text = app.tagline
         cell.imageView.sd_setImage(with: URL(string: app.imageUrl))
-        //cell.backgroundColor = .red
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width - 48, height: view.frame.height)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return .init(top: 0, left: 16, bottom: 0, right: 16)
-//    }
 }

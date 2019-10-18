@@ -46,5 +46,4 @@ class SnappingLayout: UICollectionViewFlowLayout {
         return CGPoint(x: nearestPageOffset,
                        y: parent.y)
     }
-    
 }

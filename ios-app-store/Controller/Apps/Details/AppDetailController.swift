@@ -10,45 +10,16 @@ import UIKit
 
 class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayout {
     
-    var appId: String! {
-        didSet {
-            print("Here is my appId: ", appId ?? "")
-            let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
-            
-            APIService.shared.fetchGenericJSONData(urlString: urlString) { (result: SearchResult?, err) in
-                
-                let app = result?.results.first
-                
-                self.app = app
-                //print(result?.results.first?.releaseNotes)
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            }
-            
-            let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?l=en&cc=us"
-            print(reviewsUrl)
-            
-            APIService.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, err) in
-                if let err = err {
-                    print("Failed to decode reviews:", err)
-                    return
-                }
-                
-                self.reviews = reviews
-                
-                //reviews?.feed.entry.forEach({print($0.rating.label)})
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-                
-//                reviews?.feed.entry.forEach({ (entry) in
-//                    print("Here is the title: \(entry.title.label)     ", "Here is the Author: \(entry.author.name.label)      ", "Here is the content: \(entry.content.label)       ")
-//                })
-            }
-        }
+    fileprivate let appId: String
+    
+    // dependency injection constructor
+    init(appId: String) {
+        self.appId = appId
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     var app : Result?
@@ -67,6 +38,48 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
         collectionView.register(ReviewRowCell.self, forCellWithReuseIdentifier: reviewCellId)
         
         navigationItem.largeTitleDisplayMode = .never
+        
+        fetchData()
+    }
+    
+    fileprivate func fetchData() {
+        
+        print("Here is my appId: ", appId)
+        let urlString = "https://itunes.apple.com/lookup?id=\(appId)"
+        
+        APIService.shared.fetchGenericJSONData(urlString: urlString) { (result: SearchResult?, err) in
+            
+            let app = result?.results.first
+            
+            self.app = app
+            //print(result?.results.first?.releaseNotes)
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+        
+        let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId)/sortby=mostrecent/json?l=en&cc=us"
+        print(reviewsUrl)
+        
+        APIService.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, err) in
+            if let err = err {
+                print("Failed to decode reviews:", err)
+                return
+            }
+            
+            self.reviews = reviews
+            
+            //reviews?.feed.entry.forEach({print($0.rating.label)})
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            
+            //                reviews?.feed.entry.forEach({ (entry) in
+            //                    print("Here is the title: \(entry.title.label)     ", "Here is the Author: \(entry.author.name.label)      ", "Here is the content: \(entry.content.label)       ")
+            //                })
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -104,11 +117,6 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
             // calculate the necessary size for cell somehow
             let dummyCell = AppDetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
             
-            //        dummyCell.nameLabel.text = app?.trackName
-            //        dummyCell.releaseNotesLabel.text = app?.releaseNotes
-            //        dummyCell.appIconImageView.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
-            //        dummyCell.priceButton.setTitle(app?.formattedPrice, for: .normal)
-            
             dummyCell.app = app
             
             dummyCell.layoutIfNeeded()
@@ -117,18 +125,13 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
             
             height = estimatedSize.height
             
-            //return .init(width: view.frame.width, height: estimatedSize.height)
-            
         } else if indexPath.item == 1 {
-            //return .init(width: view.frame.width, height: 500)
             height = 500
         } else {
-            //return .init(width: view.frame.width, height: 280)
             height = 280
         }
         
         return .init(width: view.frame.width, height: height)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

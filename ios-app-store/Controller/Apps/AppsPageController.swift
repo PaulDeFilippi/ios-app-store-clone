@@ -104,12 +104,6 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     
     // MARK:- Delegate Methods
     
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let redController = UIViewController()
-//        redController.view.backgroundColor = .red
-//        navigationController?.pushViewController(redController, animated: true)
-//    }
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return groups.count
     }
@@ -137,8 +131,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         cell.horizontalController.collectionView.reloadData()
         cell.horizontalController.didSelectHandler = { [weak self] feedResult in
             
-            let appDetailController = AppDetailController()
-            appDetailController.appId = feedResult.id
+            let appDetailController = AppDetailController(appId: feedResult.id)
             appDetailController.navigationItem.title = feedResult.name
             self?.navigationController?.pushViewController(appDetailController, animated: true)
         }

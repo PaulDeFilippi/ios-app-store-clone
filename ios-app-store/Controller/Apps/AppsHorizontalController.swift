@@ -30,10 +30,6 @@ class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDe
         collectionView.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
         
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
-        
-//        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-//            layout.scrollDirection = .horizontal
-//        }
     }
     
     // MARK:- Delegate Methods

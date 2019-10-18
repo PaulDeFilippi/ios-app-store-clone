@@ -17,8 +17,6 @@ class PreviewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        //backgroundColor = .red
-        
         addSubview(previewLabel)
         addSubview(horizontalController.view)
         

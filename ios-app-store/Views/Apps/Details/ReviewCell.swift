@@ -10,29 +10,7 @@ import UIKit
 
 class ReviewCell: UICollectionViewCell {
     
-    let titleLabel = UILabel(text: "Review Title", font: .boldSystemFont(ofSize: 18))
-    
-    let authorLabel = UILabel(text: "Author", font: .systemFont(ofSize: 16))
-    
-    let starsLabel = UILabel(text: "Stars", font: .systemFont(ofSize: 14))
-    
-    let starsStackView: UIStackView = {
-        var arrangedSubviews = [UIView]()
-        (0..<5).forEach({ (_) in
-            let imageView = UIImageView(image: #imageLiteral(resourceName: "star"))
-            imageView.constrainWidth(constant: 24)
-            imageView.constrainHeight(constant: 24)
-            arrangedSubviews.append(imageView)
-        })
-        
-        arrangedSubviews.append(UIView())
-        
-        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
-        
-        return stackView
-    }()
-    
-    let bodyLabel = UILabel(text: "Review body\nReview body\nReview body\n", font: .systemFont(ofSize: 18), numberOfLines: 0)
+    // MARK:- Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,4 +40,31 @@ class ReviewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK:- Views
+    
+    let titleLabel = UILabel(text: "Review Title", font: .boldSystemFont(ofSize: 18))
+    
+    let authorLabel = UILabel(text: "Author", font: .systemFont(ofSize: 16))
+    
+    let starsLabel = UILabel(text: "Stars", font: .systemFont(ofSize: 14))
+    
+    let starsStackView: UIStackView = {
+        var arrangedSubviews = [UIView]()
+        (0..<5).forEach({ (_) in
+            let imageView = UIImageView(image: #imageLiteral(resourceName: "star"))
+            imageView.constrainWidth(constant: 24)
+            imageView.constrainHeight(constant: 24)
+            arrangedSubviews.append(imageView)
+        })
+        
+        arrangedSubviews.append(UIView())
+        
+        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
+        
+        return stackView
+    }()
+    
+    let bodyLabel = UILabel(text: "Review body\nReview body\nReview body\n", font: .systemFont(ofSize: 18), numberOfLines: 0)
+    
 }

@@ -44,6 +44,7 @@
 		4FA52DF6235E7871009A6679 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DF5235E7871009A6679 /* TodayCell.swift */; };
 		4FA52DF823610E97009A6679 /* AppFullscreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DF723610E97009A6679 /* AppFullscreenController.swift */; };
 		4FA881FD23638AE00052FFF7 /* AppFullscreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA881FC23638AE00052FFF7 /* AppFullscreenDescriptionCell.swift */; };
+		4FA881FF2364D8F50052FFF7 /* AppFullscreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA881FE2364D8F50052FFF7 /* AppFullscreenHeaderCell.swift */; };
 		8DA21BA6B7F5A51EE0D848A8 /* Pods_ios_app_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		4FA52DF5235E7871009A6679 /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		4FA52DF723610E97009A6679 /* AppFullscreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullscreenController.swift; sourceTree = "<group>"; };
 		4FA881FC23638AE00052FFF7 /* AppFullscreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullscreenDescriptionCell.swift; sourceTree = "<group>"; };
+		4FA881FE2364D8F50052FFF7 /* AppFullscreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullscreenHeaderCell.swift; sourceTree = "<group>"; };
 		A9331B50BCB57FCE061C727E /* Pods-ios-app-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-app-store.debug.xcconfig"; path = "Target Support Files/Pods-ios-app-store/Pods-ios-app-store.debug.xcconfig"; sourceTree = "<group>"; };
 		E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_app_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -259,6 +261,7 @@
 			children = (
 				4FA52DF5235E7871009A6679 /* TodayCell.swift */,
 				4FA881FC23638AE00052FFF7 /* AppFullscreenDescriptionCell.swift */,
+				4FA881FE2364D8F50052FFF7 /* AppFullscreenHeaderCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				4FA52DB3232DA4E4009A6679 /* AppsSearchController.swift in Sources */,
 				4FA52DBF2330470D009A6679 /* APIService.swift in Sources */,
 				4FA52DE12347FE61009A6679 /* AppDetailController.swift in Sources */,
+				4FA881FF2364D8F50052FFF7 /* AppFullscreenHeaderCell.swift in Sources */,
 				4FA52DDC23479BD0009A6679 /* HorizontalSnappingController.swift in Sources */,
 				4FA52DCC2336C95F009A6679 /* AppRowCell.swift in Sources */,
 				4FA52DB6232EC376009A6679 /* SearchResultCell.swift in Sources */,

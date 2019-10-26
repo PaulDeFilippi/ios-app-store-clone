@@ -10,6 +10,8 @@ import UIKit
 
 class AppDetailCell: UICollectionViewCell {
     
+    // MARK:- Properties
+    
     var app: Result! {
         didSet {
             nameLabel.text = app?.trackName
@@ -18,6 +20,8 @@ class AppDetailCell: UICollectionViewCell {
             priceButton.setTitle(app?.formattedPrice, for: .normal)
         }
     }
+    
+    // MARK:- Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,6 +61,8 @@ class AppDetailCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK:- Views
     
     let appIconImageView = UIImageView(cornerRadius: 16)
     

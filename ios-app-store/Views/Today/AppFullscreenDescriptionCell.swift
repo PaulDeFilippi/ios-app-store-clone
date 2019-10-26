@@ -10,6 +10,21 @@ import UIKit
 
 class AppFullscreenDescriptionCell: UITableViewCell {
     
+    // MARK:- Initialization
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        addSubview(descriptionLabel)
+        descriptionLabel.fillSuperview(padding: .init(top: 0, left: 24, bottom: 0, right: 24))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
+    // MARK:- Views
+    
     let descriptionLabel: UILabel = {
         let label = UILabel()
         
@@ -31,16 +46,5 @@ class AppFullscreenDescriptionCell: UITableViewCell {
         
         return label
     }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        addSubview(descriptionLabel)
-        descriptionLabel.fillSuperview(padding: .init(top: 0, left: 24, bottom: 0, right: 24))
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
     
 }

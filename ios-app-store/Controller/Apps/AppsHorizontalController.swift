@@ -26,9 +26,7 @@ class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDe
         super.viewDidLoad()
         
         collectionView.backgroundColor = .white
-        
         collectionView.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
-        
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     

@@ -14,6 +14,8 @@ class PreviewCell: UICollectionViewCell {
     
     let horizontalController = PreviewScreenshotsController()
     
+    // MARK:- Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

@@ -10,6 +10,8 @@ import UIKit
 
 class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayout {
     
+    // MARK:- Properties
+    
     fileprivate let appId: String
     
     // dependency injection constructor
@@ -29,6 +31,8 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
     let previewCellId = "previewCellId"
     let reviewCellId = "reviewCellId"
     
+    // MARK:- Initialization
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -42,6 +46,8 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
         fetchData()
     }
     
+    // MARK:- Actions
+    
     fileprivate func fetchData() {
         
         print("Here is my appId: ", appId)
@@ -52,7 +58,6 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
             let app = result?.results.first
             
             self.app = app
-            //print(result?.results.first?.releaseNotes)
             
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -81,6 +86,8 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
             //                })
         }
     }
+    
+    // MARK:- Delegate Methods
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -114,7 +121,7 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
         
         if indexPath.item == 0 {
             
-            // calculate the necessary size for cell somehow
+            // calculate the necessary size for cell 
             let dummyCell = AppDetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
             
             dummyCell.app = app

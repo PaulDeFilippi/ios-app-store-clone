@@ -10,6 +10,8 @@ import UIKit
 
 class PreviewScreenshotsController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
+    // MARK:- Properties
+    
     let cellId = "cellId"
     
     var app: Result? {
@@ -35,6 +37,8 @@ class PreviewScreenshotsController: HorizontalSnappingController, UICollectionVi
         }
     }
     
+    // MARK:- Initialization
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +48,8 @@ class PreviewScreenshotsController: HorizontalSnappingController, UICollectionVi
         
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
+    
+    // MARK:- Delegate Methods
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return app?.screenshotUrls.count ?? 0

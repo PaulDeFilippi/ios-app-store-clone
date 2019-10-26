@@ -24,6 +24,11 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     var appFullscreenController: UIViewController!
     
+    var topConstraint: NSLayoutConstraint?
+    var leadingConstraint: NSLayoutConstraint?
+    var widthConstraint: NSLayoutConstraint?
+    var heightConstraint: NSLayoutConstraint?
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //print("Animate fullscreen somehow...")
         
@@ -48,15 +53,35 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
         
         self.startingFrame = startingFrame
-        redView.frame = startingFrame
+        
+        // auto layout constraint animations
+        // 4 anchors
+        
+        redView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let topConstraint = redView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
+        let leadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+        let widthConstraint = redView.widthAnchor.constraint(equalToConstant: startingFrame.width)
+        let heightConstraint = redView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+        
+        [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({ $0.isActive = true })
+        
         redView.layer.cornerRadius = 16
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+
+            self.view.layoutIfNeeded()
             
-            redView.frame = self.view.frame
+            topConstraint.constant = 0
+            leadingConstraint.constant = 0
+            widthConstraint.constant = self.view.frame.width
+            heightConstraint.constant = self.view.frame.height
             
+            self.view.layoutIfNeeded()
+            
+
             self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
-            
+
         }, completion: nil)
         
     }

@@ -23,7 +23,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     let items = [
         TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white),
-        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "star"), description: "Find out all you need to know on how to travel without packing everytthing.", backgroundColor: #colorLiteral(red: 0.9868691564, green: 0.9892501235, blue: 0.5060939193, alpha: 1))
+        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everytthing.", backgroundColor: #colorLiteral(red: 0.9833490252, green: 0.9629909396, blue: 0.7271831632, alpha: 1))
     ]
     
     // MARK:- Initialization
@@ -56,9 +56,14 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             
             self.tabBarController?.tabBar.transform = .identity
             
+            guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0, 0]) as? AppFullscreenHeaderCell else { return }
+            cell.todayCell.topConstraint.constant = 24
+            cell.layoutIfNeeded()
+            
         }, completion: { _ in
             self.appFullscreenController.view.removeFromSuperview()
             self.appFullscreenController.removeFromParent()
+            self.collectionView.isUserInteractionEnabled = true
         })
     }
     
@@ -78,6 +83,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         addChild(appFullscreenController)
         
         self.appFullscreenController = appFullscreenController
+        
+        self.collectionView.isUserInteractionEnabled = false
         
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
 
@@ -104,10 +111,14 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.widthConstraint?.constant = self.view.frame.width
             self.heightConstraint?.constant = self.view.frame.height
             
-            self.view.layoutIfNeeded()
+            self.view.layoutIfNeeded() // starts animation
             
             self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
-
+            
+            guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0, 0]) as? AppFullscreenHeaderCell else { return }
+            cell.todayCell.topConstraint.constant = 48
+            cell.layoutIfNeeded()
+            
         }, completion: nil)
         
     }

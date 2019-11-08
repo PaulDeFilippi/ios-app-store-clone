@@ -45,13 +45,14 @@
 		4FA52DF823610E97009A6679 /* AppFullscreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DF723610E97009A6679 /* AppFullscreenController.swift */; };
 		4FA881FD23638AE00052FFF7 /* AppFullscreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA881FC23638AE00052FFF7 /* AppFullscreenDescriptionCell.swift */; };
 		4FA881FF2364D8F50052FFF7 /* AppFullscreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA881FE2364D8F50052FFF7 /* AppFullscreenHeaderCell.swift */; };
+		4FA8825123737B1D0052FFF7 /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA8825023737B1D0052FFF7 /* TodayItem.swift */; };
 		8DA21BA6B7F5A51EE0D848A8 /* Pods_ios_app_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C8F820E3EDA9361113D65D9 /* Pods-ios-app-store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-app-store.release.xcconfig"; path = "Target Support Files/Pods-ios-app-store/Pods-ios-app-store.release.xcconfig"; sourceTree = "<group>"; };
 		4FA52D9A232D8575009A6679 /* ios-app-store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-app-store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FA52D9D232D8575009A6679 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4FA52D9D232D8575009A6679 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FA52D9F232D8575009A6679 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4FA52DA2232D8575009A6679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FA52DA4232D8578009A6679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		4FA52DF723610E97009A6679 /* AppFullscreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullscreenController.swift; sourceTree = "<group>"; };
 		4FA881FC23638AE00052FFF7 /* AppFullscreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullscreenDescriptionCell.swift; sourceTree = "<group>"; };
 		4FA881FE2364D8F50052FFF7 /* AppFullscreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullscreenHeaderCell.swift; sourceTree = "<group>"; };
+		4FA8825023737B1D0052FFF7 /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		A9331B50BCB57FCE061C727E /* Pods-ios-app-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-app-store.debug.xcconfig"; path = "Target Support Files/Pods-ios-app-store/Pods-ios-app-store.debug.xcconfig"; sourceTree = "<group>"; };
 		E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_app_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -183,6 +185,7 @@
 				4FA52DD72339700F009A6679 /* AppGroup.swift */,
 				4FA52DD9233FC3C8009A6679 /* SocialApp.swift */,
 				4FA52DEF23550A4B009A6679 /* Reviews.swift */,
+				4FA8825023737B1D0052FFF7 /* TodayItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				4FA52D9E232D8575009A6679 /* AppDelegate.swift in Sources */,
 				4FA52DE8234FB67A009A6679 /* PreviewScreenshotsController.swift in Sources */,
 				4FA52DCE2336CAA6009A6679 /* Extentions.swift in Sources */,
+				4FA8825123737B1D0052FFF7 /* TodayItem.swift in Sources */,
 				4FA52DB9232EF31A009A6679 /* UIView+Layout.swift in Sources */,
 				4FA881FD23638AE00052FFF7 /* AppFullscreenDescriptionCell.swift in Sources */,
 				4FA52DB0232D87B5009A6679 /* BaseTabBarController.swift in Sources */,

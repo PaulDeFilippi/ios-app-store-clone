@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F88B34B23775C6F00B6E049 /* TodayMultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88B34A23775C6F00B6E049 /* TodayMultipleAppCell.swift */; };
 		4FA52D9E232D8575009A6679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52D9D232D8575009A6679 /* AppDelegate.swift */; };
 		4FA52DA0232D8575009A6679 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52D9F232D8575009A6679 /* ViewController.swift */; };
 		4FA52DA3232D8575009A6679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA52DA1232D8575009A6679 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		4C8F820E3EDA9361113D65D9 /* Pods-ios-app-store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-app-store.release.xcconfig"; path = "Target Support Files/Pods-ios-app-store/Pods-ios-app-store.release.xcconfig"; sourceTree = "<group>"; };
+		4F88B34A23775C6F00B6E049 /* TodayMultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppCell.swift; sourceTree = "<group>"; };
 		4FA52D9A232D8575009A6679 /* ios-app-store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-app-store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA52D9D232D8575009A6679 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FA52D9F232D8575009A6679 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				4FA52DF5235E7871009A6679 /* TodayCell.swift */,
 				4FA881FC23638AE00052FFF7 /* AppFullscreenDescriptionCell.swift */,
 				4FA881FE2364D8F50052FFF7 /* AppFullscreenHeaderCell.swift */,
+				4F88B34A23775C6F00B6E049 /* TodayMultipleAppCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				4FA52DDC23479BD0009A6679 /* HorizontalSnappingController.swift in Sources */,
 				4FA52DCC2336C95F009A6679 /* AppRowCell.swift in Sources */,
 				4FA52DB6232EC376009A6679 /* SearchResultCell.swift in Sources */,
+				4F88B34B23775C6F00B6E049 /* TodayMultipleAppCell.swift in Sources */,
 				4FA52DCA23357819009A6679 /* AppsHorizontalController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

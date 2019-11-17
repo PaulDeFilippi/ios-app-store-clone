@@ -24,8 +24,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     var heightConstraint: NSLayoutConstraint?
     
     let items = [
-        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive These CarPlay Apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
         TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white, cellType: .single),
+        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive These CarPlay Apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
         TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everytthing.", backgroundColor: #colorLiteral(red: 0.9833490252, green: 0.9629909396, blue: 0.7271831632, alpha: 1), cellType: .single)
     ]
     

@@ -23,20 +23,36 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     var widthConstraint: NSLayoutConstraint?
     var heightConstraint: NSLayoutConstraint?
     
-    let items = [
-        TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white, cellType: .single),
-        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive These CarPlay Apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
-        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everytthing.", backgroundColor: #colorLiteral(red: 0.9833490252, green: 0.9629909396, blue: 0.7271831632, alpha: 1), cellType: .single)
-    ]
+//    let items = [
+
+//        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everytthing.", backgroundColor: #colorLiteral(red: 0.9833490252, green: 0.9629909396, blue: 0.7271831632, alpha: 1), cellType: .single),
+//        TodayItem.init(category: "TOP GROSSING", title: "Top grossing Apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
+//    ]
+    
+    var items = [TodayItem]()
+    
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: .whiteLarge)
+        aiv.color = .darkGray
+        aiv.startAnimating()
+        aiv.hidesWhenStopped = true
+        return aiv
+        
+    }()
     
     // MARK:- Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.centerInSuperview()
+        
+        fetchData()
+        
         navigationController?.isNavigationBarHidden = true
         
-        collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0.948936522, green: 0.9490728974, blue: 0.9489067197, alpha: 1)
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
         collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
     }
@@ -69,6 +85,51 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.appFullscreenController.removeFromParent()
             self.collectionView.isUserInteractionEnabled = true
         })
+    }
+    
+    fileprivate func fetchData() {
+        // dispatch group
+        
+        let dispatchGroup = DispatchGroup()
+        
+        var topGrossingGroup: AppGroup?
+        var gamesGroup: AppGroup?
+        
+        dispatchGroup.enter()
+        APIService.shared.fetchTopGrossing { (appGroup, err) in
+            // TODO:- Check errors
+            
+            topGrossingGroup = appGroup
+            
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        APIService.shared.fetchGames { (appGroup, err) in
+            
+            gamesGroup = appGroup
+            
+            dispatchGroup.leave()
+        }
+        
+        // treat this as completion block
+        dispatchGroup.notify(queue: .main) {
+            print("Finished Fetching")
+            self.activityIndicatorView.stopAnimating()
+            
+            self.items = [
+                
+                TodayItem.init(category: "Daily List", title: topGrossingGroup?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, apps: topGrossingGroup?.feed.results ?? [], cellType: .multiple),
+                TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everytthing.", backgroundColor: #colorLiteral(red: 0.9833490252, green: 0.9629909396, blue: 0.7271831632, alpha: 1), apps: [], cellType: .single),
+                TodayItem.init(category: "Daily List", title: gamesGroup?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, apps: gamesGroup?.feed.results ?? [], cellType: .multiple),
+                TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white, apps: [], cellType: .single)
+                
+            ]
+            
+            self.collectionView.reloadData()
+            
+        }
+    
     }
     
     // MARK:- Delegate Methods

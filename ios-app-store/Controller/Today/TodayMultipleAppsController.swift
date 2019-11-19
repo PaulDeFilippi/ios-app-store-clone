@@ -22,16 +22,17 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
         
         collectionView.register(MultipleAppCell.self, forCellWithReuseIdentifier: cellId)
         
-        APIService.shared.fetchGames { (appGroup, err) in
-            
-            self.results = appGroup?.feed.results ?? []
-            print("Here are all the feed results", self.results)
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-
-        }
+        // never execute fetch code inside of a view - this controller lives in a cell currently
+//        APIService.shared.fetchGames { (appGroup, err) in
+//
+//            self.results = appGroup?.feed.results ?? []
+//            print("Here are all the feed results", self.results)
+//
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//
+//        }
         
     }
     

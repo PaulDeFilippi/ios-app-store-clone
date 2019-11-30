@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F7E931223903D4600E409D4 /* BackEnabledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E931123903D4600E409D4 /* BackEnabledNavigationController.swift */; };
 		4F88B34B23775C6F00B6E049 /* TodayMultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88B34A23775C6F00B6E049 /* TodayMultipleAppCell.swift */; };
 		4FA52D9E232D8575009A6679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52D9D232D8575009A6679 /* AppDelegate.swift */; };
 		4FA52DA0232D8575009A6679 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52D9F232D8575009A6679 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		4C8F820E3EDA9361113D65D9 /* Pods-ios-app-store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-app-store.release.xcconfig"; path = "Target Support Files/Pods-ios-app-store/Pods-ios-app-store.release.xcconfig"; sourceTree = "<group>"; };
+		4F7E931123903D4600E409D4 /* BackEnabledNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEnabledNavigationController.swift; sourceTree = "<group>"; };
 		4F88B34A23775C6F00B6E049 /* TodayMultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppCell.swift; sourceTree = "<group>"; };
 		4FA52D9A232D8575009A6679 /* ios-app-store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-app-store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA52D9D232D8575009A6679 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				4FA52DF2235E76FC009A6679 /* TodayController.swift */,
 				4FA52DF723610E97009A6679 /* AppFullscreenController.swift */,
 				4FB4704E2380A13500737BA4 /* TodayMultipleAppsController.swift */,
+				4F7E931123903D4600E409D4 /* BackEnabledNavigationController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				4FA52DD423380366009A6679 /* AppsHeaderCell.swift in Sources */,
 				4FA52DE6234F7A79009A6679 /* PreviewCell.swift in Sources */,
 				4FA52DEC235397D4009A6679 /* ReviewsController.swift in Sources */,
+				4F7E931223903D4600E409D4 /* BackEnabledNavigationController.swift in Sources */,
 				4FA52DF023550A4B009A6679 /* Reviews.swift in Sources */,
 				4FA52DF3235E76FC009A6679 /* TodayController.swift in Sources */,
 				4FA52DD22337FD64009A6679 /* AppsHeaderHorizontalController.swift in Sources */,

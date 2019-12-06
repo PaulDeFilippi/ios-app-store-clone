@@ -50,6 +50,9 @@
 		4FA8825123737B1D0052FFF7 /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA8825023737B1D0052FFF7 /* TodayItem.swift */; };
 		4FB4704F2380A13500737BA4 /* TodayMultipleAppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4704E2380A13500737BA4 /* TodayMultipleAppsController.swift */; };
 		4FB470512380A27600737BA4 /* MultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB470502380A27600737BA4 /* MultipleAppCell.swift */; };
+		4FDE79412399DB5000E9F381 /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE79402399DB5000E9F381 /* MusicController.swift */; };
+		4FDE79442399DE1900E9F381 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE79432399DE1900E9F381 /* TrackCell.swift */; };
+		4FDE79462399E36500E9F381 /* MusicLoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE79452399E36500E9F381 /* MusicLoadingFooter.swift */; };
 		4FFDB31B23808368000657A6 /* BaseTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFDB31A23808368000657A6 /* BaseTodayCell.swift */; };
 		8DA21BA6B7F5A51EE0D848A8 /* Pods_ios_app_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +104,9 @@
 		4FA8825023737B1D0052FFF7 /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		4FB4704E2380A13500737BA4 /* TodayMultipleAppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppsController.swift; sourceTree = "<group>"; };
 		4FB470502380A27600737BA4 /* MultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAppCell.swift; sourceTree = "<group>"; };
+		4FDE79402399DB5000E9F381 /* MusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
+		4FDE79432399DE1900E9F381 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		4FDE79452399E36500E9F381 /* MusicLoadingFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLoadingFooter.swift; sourceTree = "<group>"; };
 		4FFDB31A23808368000657A6 /* BaseTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodayCell.swift; sourceTree = "<group>"; };
 		A9331B50BCB57FCE061C727E /* Pods-ios-app-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-app-store.debug.xcconfig"; path = "Target Support Files/Pods-ios-app-store/Pods-ios-app-store.debug.xcconfig"; sourceTree = "<group>"; };
 		E52279EF3BF95AEE5047EF68 /* Pods_ios_app_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_app_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +163,7 @@
 		4FA52DB1232DA472009A6679 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4FDE793F2399DB2B00E9F381 /* Muisc */,
 				4FA52DF1235E76A4009A6679 /* Today */,
 				4FA52DC8233577E5009A6679 /* Search */,
 				4FA52DC023356B72009A6679 /* Apps */,
@@ -170,6 +177,7 @@
 		4FA52DB4232EC34E009A6679 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4FDE79422399DE0400E9F381 /* Music */,
 				4FA52DF4235E7852009A6679 /* Today */,
 				4FA52DC523357199009A6679 /* Apps */,
 				4FA52DB5232EC376009A6679 /* SearchResultCell.swift */,
@@ -282,6 +290,23 @@
 				4FB470502380A27600737BA4 /* MultipleAppCell.swift */,
 			);
 			path = Today;
+			sourceTree = "<group>";
+		};
+		4FDE793F2399DB2B00E9F381 /* Muisc */ = {
+			isa = PBXGroup;
+			children = (
+				4FDE79402399DB5000E9F381 /* MusicController.swift */,
+			);
+			path = Muisc;
+			sourceTree = "<group>";
+		};
+		4FDE79422399DE0400E9F381 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				4FDE79432399DE1900E9F381 /* TrackCell.swift */,
+				4FDE79452399E36500E9F381 /* MusicLoadingFooter.swift */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		9BD1EC69743309E421D58352 /* Frameworks */ = {
@@ -426,12 +451,14 @@
 				4FA52DD6233804A3009A6679 /* VerticalStackView.swift in Sources */,
 				4FA52DEE23539A75009A6679 /* ReviewCell.swift in Sources */,
 				4FA52DF823610E97009A6679 /* AppFullscreenController.swift in Sources */,
+				4FDE79462399E36500E9F381 /* MusicLoadingFooter.swift in Sources */,
 				4FA52DDA233FC3C8009A6679 /* SocialApp.swift in Sources */,
 				4FA52DA0232D8575009A6679 /* ViewController.swift in Sources */,
 				4FA52DD82339700F009A6679 /* AppGroup.swift in Sources */,
 				4FA52DC7233571B2009A6679 /* AppsGroupCell.swift in Sources */,
 				4FA52DD02337F90A009A6679 /* AppsPageHeader.swift in Sources */,
 				4FA52DBC23303F57009A6679 /* SearchResult.swift in Sources */,
+				4FDE79412399DB5000E9F381 /* MusicController.swift in Sources */,
 				4FA52DEA23538E03009A6679 /* ReviewRowCell.swift in Sources */,
 				4FB4704F2380A13500737BA4 /* TodayMultipleAppsController.swift in Sources */,
 				4FB470512380A27600737BA4 /* MultipleAppCell.swift in Sources */,
@@ -460,6 +487,7 @@
 				4FA52DDC23479BD0009A6679 /* HorizontalSnappingController.swift in Sources */,
 				4FA52DCC2336C95F009A6679 /* AppRowCell.swift in Sources */,
 				4FA52DB6232EC376009A6679 /* SearchResultCell.swift in Sources */,
+				4FDE79442399DE1900E9F381 /* TrackCell.swift in Sources */,
 				4F88B34B23775C6F00B6E049 /* TodayMultipleAppCell.swift in Sources */,
 				4FA52DCA23357819009A6679 /* AppsHorizontalController.swift in Sources */,
 			);

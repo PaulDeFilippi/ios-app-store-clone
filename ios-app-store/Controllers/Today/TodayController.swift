@@ -66,7 +66,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout, U
     var startingFrame: CGRect?
     
     @objc func handleAppFullscreenDismissal() {
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             self.blurVisualEffectView.alpha = 0
             self.appFullscreenController.view.transform = .identity
             

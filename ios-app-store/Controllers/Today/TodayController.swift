@@ -67,11 +67,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout, U
     
     @objc func handleAppFullscreenDismissal() {
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            
             self.blurVisualEffectView.alpha = 0
             self.appFullscreenController.view.transform = .identity
-            
-            self.appFullscreenController.tableView.contentOffset = .zero
             
             guard let startingFrame = self.startingFrame else { return }
             
@@ -81,6 +78,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout, U
             self.anchoredConstraints?.height?.constant = startingFrame.height
             
             self.view.layoutIfNeeded()
+            
+            self.appFullscreenController.tableView.contentOffset = .zero
             
             //Replaced old transform behavior because its not working anymore on iOS 13
             //https://stackoverflow.com/questions/58199604/cgaffinetransform-translation-doesnt-work-on-tabbar-after-update-to-xcode-11
@@ -97,6 +96,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout, U
         }, completion: { _ in
             self.appFullscreenController.view.removeFromSuperview()
             self.appFullscreenController.removeFromParent()
+//            self.appFullscreenController.tableView.bounces = true
+//            self.appFullscreenController.tableView.bouncesZoom = true
             self.collectionView.isUserInteractionEnabled = true
         })
     }

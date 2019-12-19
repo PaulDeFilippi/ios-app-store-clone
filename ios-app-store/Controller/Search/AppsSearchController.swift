@@ -54,7 +54,7 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         definesPresentationContext = true
         navigationItem.searchController = self.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
     

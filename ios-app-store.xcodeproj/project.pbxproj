@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4F7E931223903D4600E409D4 /* BackEnabledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E931123903D4600E409D4 /* BackEnabledNavigationController.swift */; };
 		4F88B34B23775C6F00B6E049 /* TodayMultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88B34A23775C6F00B6E049 /* TodayMultipleAppCell.swift */; };
 		4FA52D9E232D8575009A6679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52D9D232D8575009A6679 /* AppDelegate.swift */; };
+		4FA52DA0232D8575009A6679 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52D9F232D8575009A6679 /* ViewController.swift */; };
+		4FA52DA3232D8575009A6679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA52DA1232D8575009A6679 /* Main.storyboard */; };
 		4FA52DA5232D8578009A6679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA52DA4232D8578009A6679 /* Assets.xcassets */; };
 		4FA52DA8232D8578009A6679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA52DA6232D8578009A6679 /* LaunchScreen.storyboard */; };
 		4FA52DB0232D87B5009A6679 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA52DAF232D87B5009A6679 /* BaseTabBarController.swift */; };
@@ -61,6 +63,8 @@
 		4F88B34A23775C6F00B6E049 /* TodayMultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppCell.swift; sourceTree = "<group>"; };
 		4FA52D9A232D8575009A6679 /* ios-app-store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-app-store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA52D9D232D8575009A6679 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4FA52D9F232D8575009A6679 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4FA52DA2232D8575009A6679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FA52DA4232D8578009A6679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FA52DA7232D8578009A6679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FA52DA9232D8578009A6679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,12 +145,14 @@
 		4FA52D9C232D8575009A6679 /* ios-app-store */ = {
 			isa = PBXGroup;
 			children = (
-				4FA52DBD233046E7009A6679 /* Services */,
-				4FA52DBA23303F39009A6679 /* Models */,
+				4FA52DBD233046E7009A6679 /* Service */,
+				4FA52DBA23303F39009A6679 /* Model */,
 				4FA52DB7232EF2FB009A6679 /* Helpers */,
 				4FA52DB4232EC34E009A6679 /* Views */,
-				4FA52DB1232DA472009A6679 /* Controllers */,
+				4FA52DB1232DA472009A6679 /* Controller */,
 				4FA52D9D232D8575009A6679 /* AppDelegate.swift */,
+				4FA52D9F232D8575009A6679 /* ViewController.swift */,
+				4FA52DA1232D8575009A6679 /* Main.storyboard */,
 				4FA52DA4232D8578009A6679 /* Assets.xcassets */,
 				4FA52DA6232D8578009A6679 /* LaunchScreen.storyboard */,
 				4FA52DA9232D8578009A6679 /* Info.plist */,
@@ -154,7 +160,7 @@
 			path = "ios-app-store";
 			sourceTree = "<group>";
 		};
-		4FA52DB1232DA472009A6679 /* Controllers */ = {
+		4FA52DB1232DA472009A6679 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				4FDE793F2399DB2B00E9F381 /* Muisc */,
@@ -165,7 +171,7 @@
 				4FA52DC323356D7F009A6679 /* BaseListController.swift */,
 				4FA52DDB23479BD0009A6679 /* HorizontalSnappingController.swift */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4FA52DB4232EC34E009A6679 /* Views */ = {
@@ -190,7 +196,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		4FA52DBA23303F39009A6679 /* Models */ = {
+		4FA52DBA23303F39009A6679 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4FA52DBB23303F57009A6679 /* SearchResult.swift */,
@@ -199,15 +205,15 @@
 				4FA52DEF23550A4B009A6679 /* Reviews.swift */,
 				4FA8825023737B1D0052FFF7 /* TodayItem.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		4FA52DBD233046E7009A6679 /* Services */ = {
+		4FA52DBD233046E7009A6679 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				4FA52DBE2330470D009A6679 /* APIService.swift */,
 			);
-			path = Services;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		4FA52DC023356B72009A6679 /* Apps */ = {
@@ -382,6 +388,7 @@
 			files = (
 				4FA52DA8232D8578009A6679 /* LaunchScreen.storyboard in Resources */,
 				4FA52DA5232D8578009A6679 /* Assets.xcassets in Resources */,
+				4FA52DA3232D8575009A6679 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,11 +423,16 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ios-app-store/Pods-ios-app-store-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ios-app-store/Pods-ios-app-store-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ios-app-store/Pods-ios-app-store-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -441,6 +453,7 @@
 				4FA52DF823610E97009A6679 /* AppFullscreenController.swift in Sources */,
 				4FDE79462399E36500E9F381 /* MusicLoadingFooter.swift in Sources */,
 				4FA52DDA233FC3C8009A6679 /* SocialApp.swift in Sources */,
+				4FA52DA0232D8575009A6679 /* ViewController.swift in Sources */,
 				4FA52DD82339700F009A6679 /* AppGroup.swift in Sources */,
 				4FA52DC7233571B2009A6679 /* AppsGroupCell.swift in Sources */,
 				4FA52DD02337F90A009A6679 /* AppsPageHeader.swift in Sources */,
@@ -483,6 +496,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		4FA52DA1232D8575009A6679 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FA52DA2232D8575009A6679 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		4FA52DA6232D8578009A6679 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

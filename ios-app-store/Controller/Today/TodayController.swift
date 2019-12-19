@@ -66,6 +66,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout, U
     var startingFrame: CGRect?
     
     @objc func handleAppFullscreenDismissal() {
+        
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             
             self.blurVisualEffectView.alpha = 0
@@ -82,11 +83,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout, U
             
             self.view.layoutIfNeeded()
             
-            //Replaced old transform behavior because its not working anymore on iOS 13
-            //https://stackoverflow.com/questions/58199604/cgaffinetransform-translation-doesnt-work-on-tabbar-after-update-to-xcode-11
-            if let frame = self.tabBarController?.tabBar.frame {
-                self.tabBarController?.tabBar.frame = frame.offsetBy(dx: 0, dy: -100)
-            }
+            self.tabBarController?.tabBar.transform = .identity
             
             guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0, 0]) as? AppFullscreenHeaderCell else { return }
             //cell.closeButton.alpha = 0
@@ -261,12 +258,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout, U
             
             self.view.layoutIfNeeded() // starts animation
             
-            
-            //Replaced old transform behavior because its not working anymore on iOS 13
-            //https://stackoverflow.com/questions/58199604/cgaffinetransform-translation-doesnt-work-on-tabbar-after-update-to-xcode-11
-            if let frame = self.tabBarController?.tabBar.frame {
-                self.tabBarController?.tabBar.frame = frame.offsetBy(dx: 0, dy: 100)
-            }
+            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
             
             guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0, 0]) as? AppFullscreenHeaderCell else { return }
             cell.todayCell.topConstraint.constant = 48

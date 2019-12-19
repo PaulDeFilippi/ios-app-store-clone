@@ -29,8 +29,7 @@ class AppFullscreenController: UIViewController, UITableViewDataSource, UITableV
         
         setupCloseButton()
         
-        //Footer view height set to 100 to counteract floating controller overlapping with content
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+        tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.contentInsetAdjustmentBehavior = .never
@@ -39,6 +38,7 @@ class AppFullscreenController: UIViewController, UITableViewDataSource, UITableV
         tableView.contentInset = .init(top: 0, left: 0, bottom: height, right: 0)
         
         setupFloatingControls()
+
     }
     
     // MARK:- Actions

@@ -37,7 +37,6 @@ class ReviewsController: HorizontalSnappingController, UICollectionViewDelegateF
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ReviewCell
         
         let entry = self.reviews?.feed.entry[indexPath.item]
@@ -63,5 +62,3 @@ class ReviewsController: HorizontalSnappingController, UICollectionViewDelegateF
         return 16
     }
 }
-
-

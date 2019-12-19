@@ -10,10 +10,14 @@ import UIKit
 
 class AppFullscreenController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK:- Properties
+    
     var dismissHandler: (() ->())?
     var todayItem: TodayItem?
     
     let tableView = UITableView(frame: .zero, style: .plain)
+    
+    let floatingContainerView = UIView()
     
     // MARK:- Initialization
     
@@ -29,7 +33,9 @@ class AppFullscreenController: UIViewController, UITableViewDataSource, UITableV
         
         setupCloseButton()
         
-        tableView.tableFooterView = UIView()
+        //tableView.tableFooterView = UIView()
+        //Footer view height set to 100 to counteract floating controller overlapping with content
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.contentInsetAdjustmentBehavior = .never
@@ -38,12 +44,9 @@ class AppFullscreenController: UIViewController, UITableViewDataSource, UITableV
         tableView.contentInset = .init(top: 0, left: 0, bottom: height, right: 0)
         
         setupFloatingControls()
-
     }
     
     // MARK:- Actions
-    
-    let floatingContainerView = UIView()
     
     @objc fileprivate func handleTap() {
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
@@ -90,7 +93,6 @@ class AppFullscreenController: UIViewController, UITableViewDataSource, UITableV
         floatingContainerView.addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
         stackView.alignment = .center
-        
     }
     
     @objc fileprivate func handleDismiss(button: UIButton) {
@@ -128,7 +130,6 @@ class AppFullscreenController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.item == 0 {
             let headerCell = AppFullscreenHeaderCell()
             headerCell.todayCell.todayItem = todayItem
@@ -143,13 +144,11 @@ class AppFullscreenController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         if indexPath.row == 0 {
            return TodayController.cellSize
         }
         
         return UITableView.automaticDimension
-        
     }
     
     let closeButton: UIButton = {

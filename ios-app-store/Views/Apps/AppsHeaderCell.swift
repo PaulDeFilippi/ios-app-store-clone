@@ -40,4 +40,5 @@ class AppsHeaderCell: UICollectionViewCell {
         font: .systemFont(ofSize: 24))
     
     let imageView = UIImageView(cornerRadius: 8)
+
 }

@@ -55,9 +55,7 @@ class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let height = (view.frame.height - 2 * topBottomPadding - 2 * lineSpacing) / 3
-        
         return .init(width: view.frame.width - 48, height: height)
     }
     

@@ -32,9 +32,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         super.viewDidLoad()
         
         collectionView.backgroundColor = .white
-        
         collectionView.register(AppsGroupCell.self, forCellWithReuseIdentifier: cellId)
-        
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         
         view.addSubview(activityIndicatorView)

@@ -13,7 +13,7 @@ class SearchResultCell: UICollectionViewCell {
     // MARK:- Properties
     
     var appResult: Result! {
-        
+
         didSet {
             nameLabel.text = appResult.trackName
             categoryLabel.text = appResult.primaryGenreName
@@ -132,4 +132,5 @@ class SearchResultCell: UICollectionViewCell {
         
         return imageView
     }
+
 }

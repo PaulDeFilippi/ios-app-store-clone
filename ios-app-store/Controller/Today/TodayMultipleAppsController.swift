@@ -10,14 +10,17 @@ import UIKit
 
 class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateFlowLayout {
     
+    // MARK:- Properties
+    
     let cellId = "cellId"
     
     var apps = [FeedResult]()
     
+    fileprivate let spacing: CGFloat = 16
+    
     // MARK:- Initialization
     
     fileprivate let mode: Mode
-    
     enum Mode {
         case small
         case fullscreen
@@ -45,7 +48,6 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
         collectionView.backgroundColor = .white
         
         collectionView.register(MultipleAppCell.self, forCellWithReuseIdentifier: cellId)
-        
     }
     
     override var prefersStatusBarHidden: Bool { return true }
@@ -82,11 +84,9 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
         
         cell.app = self.apps[indexPath.item]
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let height: CGFloat = 68 //(view.frame.height - 3 * spacing) / 4
         
         if mode == .fullscreen {
@@ -94,8 +94,6 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
         }
         return .init(width: view.frame.width, height: height)
     }
-    
-    fileprivate let spacing: CGFloat = 16
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
@@ -105,7 +103,6 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
         if mode == .fullscreen {
             return .init(top: 12, left: 24, bottom: 12, right: 24)
         }
-        
         return .zero
     }
     

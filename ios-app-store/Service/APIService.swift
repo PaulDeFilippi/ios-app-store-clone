@@ -21,14 +21,12 @@ class APIService {
     }
     
     func fetchTopGrossing(completion: @escaping (AppGroup?, Error?) -> ()) {
-        
         let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/50/explicit.json"
         
         fetchAppGroup(urlString: urlString, completion: completion)
     }
     
     func fetchGames(completion: @escaping (AppGroup?, Error?) -> ()) {
-        
         let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json"
         
         fetchAppGroup(urlString: urlString, completion: completion)
@@ -49,8 +47,7 @@ class APIService {
     // generic json function
     
     func fetchGenericJSONData<T: Decodable>(urlString: String, completion: @escaping (T?, Error?) -> ()) {
-        
-        print("T is of type: ", T.self)
+        //print("T is of type: ", T.self)
         
         guard let url = URL(string: urlString) else { return }
         

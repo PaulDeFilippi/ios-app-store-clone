@@ -10,8 +10,16 @@ import UIKit
 
 class MusicController: BaseListController, UICollectionViewDelegateFlowLayout {
     
+    // MARK:- Properties
+    
     fileprivate let cellId = "cellId"
     fileprivate let footerId = "footerId"
+    var results = [Result]() // empty array
+    fileprivate let searchTerm = "whodini"
+    var isPaginating = false
+    var isDonePaginating = false
+    
+    // MARK:- Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +32,8 @@ class MusicController: BaseListController, UICollectionViewDelegateFlowLayout {
         fetchData()
     }
     
-    var results = [Result]() // empty array
-    
-    fileprivate let searchTerm = "whodini"
-    
+    // MARK:- Actions
+
     fileprivate func fetchData() {
         let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&offset=0&limit=20"
         
@@ -49,12 +55,11 @@ class MusicController: BaseListController, UICollectionViewDelegateFlowLayout {
         }
     }
     
+    // MARK:- Delegate Methods
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return results.count
     }
-    
-    var isPaginating = false
-    var isDonePaginating = false
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TrackCell
@@ -94,7 +99,7 @@ class MusicController: BaseListController, UICollectionViewDelegateFlowLayout {
                 self.isPaginating = false
             }
         }
-        
+
         return cell
     }
     

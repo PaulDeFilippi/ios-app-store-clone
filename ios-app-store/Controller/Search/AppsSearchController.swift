@@ -26,6 +26,8 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         return label
     }()
     
+    var timer: Timer?
+    
     // MARK:- Initialization
 
     override func viewDidLoad() {
@@ -54,12 +56,11 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         definesPresentationContext = true
         navigationItem.searchController = self.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
     
     fileprivate func fetchItunesApps() {
-        
         APIService.shared.fetchApps(searchTerm: "Twitter") { (res, err) in
             
             if let err = err {
@@ -72,11 +73,8 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-        
         }
     }
-    
-    var timer: Timer?
     
     // MARK:- Search Bar Delegate Methods
     
@@ -84,7 +82,6 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         print(searchText)
         
         // throttling the search
-        
         timer?.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
@@ -111,19 +108,16 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         enterSearchTermLabel.isHidden = appResults.count != 0
-        
         return appResults.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchResultCell
         
         // use indexPath.item when inside a collectionView / use indexPath.row when using a tableView
         let appResult = appResults[indexPath.item]
         
         cell.appResult = appResult
-       
         return cell
     }
     

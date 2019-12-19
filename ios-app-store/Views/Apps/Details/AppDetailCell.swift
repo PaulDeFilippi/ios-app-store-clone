@@ -55,7 +55,6 @@ class AppDetailCell: UICollectionViewCell {
         
         addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 20, left: 20, bottom: 20, right: 20))
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

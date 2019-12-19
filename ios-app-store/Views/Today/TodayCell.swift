@@ -30,13 +30,11 @@ class TodayCell: BaseTodayCell {
         super.init(frame: frame)
         
         backgroundColor = .white
-        //clipsToBounds = true
+        
         layer.cornerRadius = 16
         
-        //addSubview(imageView)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        //imageView.centerInSuperview(size: .init(width: 230, height: 230))
         
         let imageContainerView = UIView()
         imageContainerView.addSubview(imageView)
@@ -47,12 +45,10 @@ class TodayCell: BaseTodayCell {
             categoryLabel, titleLabel, imageContainerView, descriptionLabel
             ], spacing: 8)
         addSubview(stackView)
-        //stackView.fillSuperview(padding: .init(top: 24, left: 24, bottom: 24, right: 24))
-        
+
         stackView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 24, left: 24, bottom: 24, right: 24))
         self.topConstraint = stackView.topAnchor.constraint(equalTo: topAnchor, constant: 24)
         self.topConstraint.isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

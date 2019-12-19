@@ -54,5 +54,6 @@ class AppRowCell: UICollectionViewCell {
                                font: .systemFont(ofSize: 13))
     
     let getButton = UIButton(title: "GET")
+
 }
 

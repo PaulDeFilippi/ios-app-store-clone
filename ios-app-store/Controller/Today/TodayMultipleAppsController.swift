@@ -101,7 +101,7 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if mode == .fullscreen {
-            return .init(top: 12, left: 24, bottom: 12, right: 24)
+            return .init(top: 55, left: 24, bottom: 12, right: 24)
         }
         return .zero
     }

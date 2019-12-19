@@ -154,6 +154,7 @@ class AppFullscreenController: UIViewController, UITableViewDataSource, UITableV
     let closeButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "closeButton"), for: .normal)
+        btn.tintColor = .darkGray
         return btn
     }()
 
